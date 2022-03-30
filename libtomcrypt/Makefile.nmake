@@ -1,0 +1,14 @@
+OBJS = src/ciphers/aes/aes.o src/misc/crypt/crypt_argchk.o src/misc/compare_testvector.o src/misc/zeromem.o
+
+PERL       =perl
+RM_F       =$(PERL) -MExtUtils::Command -e rm_f --
+
+libonlyaes.lib: $(OBJS)
+	lib /OUT:$@ $(OBJS)
+
+clean:
+	$(RM_F) $(OBJS) libonlyaes.lib
+
+.c.obj:
+        cl /Isrc/headers /DLTC_SOURCE /DLTC_NO_TEST /DLTC_NO_PROTOTYPES /DLTM_DESC /DARGTYPE=4 $(CFLAGS) /c $< /Fo$@
+
