@@ -1,5 +1,8 @@
 #!/usr/bin/env perl
 
+# A lot of this is cargo-culted from CryptX which has already gone through a lot of working around platform
+# incompatibilities which we're grateful to take advantage of here -- thanks cpan:MIK!
+
 use warnings;
 use strict;
 
@@ -64,7 +67,8 @@ if ($^O !~ /^(MSWin32|darwin|solaris)$/ && ($Config{ld} =~ /gcc|g\+\+/ || $Confi
 }
 
 my %eumm_args = (
-##{ $plugin->get_default(qw{ABSTRACT AUTHOR DISTNAME LICENSE MIN_PERL_VERSION NAME VERSION test}) ##}
+  'NAME' => 'File::KDBX::XS',##{  # List NAME explicitly here so it works even without dzil. ##}
+##{ $plugin->get_default(qw{ABSTRACT AUTHOR DISTNAME LICENSE MIN_PERL_VERSION VERSION test}) ##}
 ##{ $plugin->get_prereqs(1) ##}
     @EUMM_INC_LIB,
 );

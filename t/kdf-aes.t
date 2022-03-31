@@ -3,9 +3,8 @@
 use warnings;
 use strict;
 
+use File::KDBX::XS;
 use Test::More;
-
-BEGIN { use_ok('File::KDBX::XS') }
 
 my $key         = "\1" x 32;
 my $seed        = "\1" x 16;
