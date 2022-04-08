@@ -1,0 +1,25 @@
+name: macos
+
+on:
+  push:
+    branches: ["*"]
+  pull_request:
+    branches: ["*"]
+
+jobs:
+  unit-tests:
+    name: "Test perl on macOS"
+
+    runs-on: macos-latest
+
+    steps:
+      - name: Install perl
+        run: brew install perl
+      - name: Print perl version
+        run: perl -V
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: curl -sL https://git.io/cpm |perl - install -g --with-develop --show-build-log-on-failure
+      - name: Run tests
+        run: dzil smoke --author --release

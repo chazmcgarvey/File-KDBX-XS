@@ -1,0 +1,27 @@
+name: windows
+
+on:
+  push:
+    branches: ["*"]
+  pull_request:
+    branches: ["*"]
+
+jobs:
+  unit-tests:
+    name: "Test perl on Windows"
+
+    runs-on: windows-latest
+
+    steps:
+      - name: Install perl
+        run: |
+          choco install strawberryperl
+          echo "C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin" >>$GITHUB_PATH
+      - name: Print perl version
+        run: perl -V
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: curl -sL https://git.io/cpm |perl - install -g --with-develop --show-build-log-on-failure
+      - name: Run tests
+        run: dzil smoke --author --release
