@@ -1,4 +1,4 @@
-OBJS = src/ciphers/aes/aes.o src/misc/crypt/crypt_argchk.o src/misc/compare_testvector.o src/misc/zeromem.o
+OBJS = src/ciphers/aes/aes.obj src/misc/crypt/crypt_argchk.obj src/misc/compare_testvector.obj src/misc/zeromem.obj
 
 PERL       =perl
 RM_F       =$(PERL) -MExtUtils::Command -e rm_f --
@@ -11,4 +11,3 @@ clean:
 
 .c.obj:
         cl /Isrc/headers /DLTC_SOURCE /DLTC_NO_TEST /DLTC_NO_PROTOTYPES /DLTM_DESC /DARGTYPE=4 $(CFLAGS) /c $< /Fo$@
-

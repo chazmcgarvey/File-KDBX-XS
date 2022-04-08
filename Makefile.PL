@@ -94,7 +94,7 @@ sub MY::postamble {
 };
 
     $extra_targets = qq{
-\$(MYEXTLIB): libtomcrypt/Makefile
+\$(MYEXTLIB): libtomcrypt/Makefile.nmake
 \tcd libtomcrypt && \$(MAKE) -f Makefile.nmake CFLAGS="$mycflags"
 } if $^O eq 'MSWin32' && $Config{make} =~ /nmake/ && $Config{cc} =~ /cl/;
 
