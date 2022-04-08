@@ -14,7 +14,7 @@ use ExtUtils::MakeMaker;
 my (@EUMM_INC_LIB, $myarflags, $mycflags);
 
 # use bundled libtomcrypt
-my @myobjs = map { /^(.*)\.c$/ ? "$1.$Config{obj_ext}" : () } qw(
+my @myobjs = map { /^(.*)\.c$/ ? "$1$Config{obj_ext}" : () } qw(
     libtomcrypt/src/ciphers/aes/aes.c
     libtomcrypt/src/misc/compare_testvector.c
     libtomcrypt/src/misc/crypt/crypt_argchk.c
@@ -56,6 +56,7 @@ $mycflags = "$mycflags -Wall -Werror -Wextra" if $ENV{AUTHOR_MODE};
                                                                 : '-DLTM_DESC -Ilibtomcrypt/src/headers',
     MYEXTLIB    => "libtomcrypt/libonlyaes$Config{lib_ext}",
     clean       => { FILES => join(' ', @myobjs, "libtomcrypt/libonlyaes$Config{lib_ext}") },
+    realclean   => { FILES => join(' ', qw{cover_db *.gcda *.gcno *.gcov})},
 );
 
 #FIX: https://github.com/DCIT/perl-CryptX/pull/79
