@@ -21,6 +21,8 @@ jobs:
         run: perl -V
       - name: Install dzil
         run: cpanm -n Dist::Zilla
+      - name: Configure git
+        run: git config --global core.autocrlf input
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Install author dependencies
