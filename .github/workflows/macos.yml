@@ -17,9 +17,15 @@ jobs:
         run: brew install perl
       - name: Print perl version
         run: perl -V
+      - name: Install cpanm
+        run: curl -sL https://cpanmin.us |perl - App::cpanminus
+      - name: Install dzil
+        run: cpanm -n Dist::Zilla
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Install dependencies
-        run: curl -sL https://git.io/cpm |perl - install -g --with-develop --show-build-log-on-failure
+      - name: Install author dependencies
+        run: dzil authordeps --missing |cpanm -n
+      - name: Install module dependencies
+        run: dzil listdeps --develop --missing |cpanm -n
       - name: Run tests
         run: dzil smoke --author --release
