@@ -14,7 +14,9 @@ jobs:
 
     steps:
       - name: Install perl
-        run: brew install perl cpanminus
+        run: |
+          brew install perl cpanminus
+          perl -MConfig -e'print $Config{installscript}' >>$GITHUB_PATH
       - name: Print perl version
         run: perl -V
       - name: Install dzil
