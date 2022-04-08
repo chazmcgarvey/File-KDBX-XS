@@ -8,6 +8,8 @@
 
 MODULE = File::KDBX::XS  PACKAGE = File::KDBX::KDF::AES
 
+PROTOTYPES: DISABLE
+
 SV*
 _transform_half_xs(const char* key, const char* seed, unsigned int rounds)
     CODE:
