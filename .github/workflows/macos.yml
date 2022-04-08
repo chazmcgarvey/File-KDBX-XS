@@ -14,11 +14,9 @@ jobs:
 
     steps:
       - name: Install perl
-        run: brew install perl
+        run: brew install perl cpanminus
       - name: Print perl version
         run: perl -V
-      - name: Install cpanm
-        run: curl -sL https://cpanmin.us |perl - App::cpanminus
       - name: Install dzil
         run: cpanm -n Dist::Zilla
       - name: Checkout code
