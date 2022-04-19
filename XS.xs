@@ -6,6 +6,20 @@
 
 #include "tomcrypt.h"
 
+MODULE = File::KDBX::XS  PACKAGE = File::KDBX::Util
+
+PROTOTYPES: DISABLE
+
+SV*
+CowREFCNT(SV* sv)
+    CODE:
+#ifdef SV_COW_REFCNT_MAX
+        if (SvIsCOW(sv)) XSRETURN_IV(0 < SvLEN(sv) ? CowREFCNT(sv) : 0);
+#endif
+        XSRETURN_UNDEF;
+    OUTPUT:
+        RETVAL
+
 MODULE = File::KDBX::XS  PACKAGE = File::KDBX::KDF::AES
 
 PROTOTYPES: DISABLE
@@ -31,4 +45,3 @@ _transform_half_xs(const char* key, const char* seed, unsigned int rounds)
         RETVAL = result;
     OUTPUT:
         RETVAL
-
