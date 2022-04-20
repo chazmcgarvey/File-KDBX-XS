@@ -4,9 +4,15 @@ package File::KDBX::XS;
 use warnings;
 use strict;
 
+use Exporter qw(import);
 use XSLoader;
 
 our $VERSION = '999.999'; # VERSION
+
+our @EXPORT_OK = qw(
+    CowREFCNT
+    kdf_aes_transform_half
+);
 
 XSLoader::load(__PACKAGE__, $VERSION);
 
@@ -37,5 +43,12 @@ bundled according to their own licensing terms (which are also permissive).
 <a title="Windows" href="https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/windows.yml"><img src="https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/windows.yml/badge.svg"></a>
 
 =end HTML
+
+=func CowREFCNT
+
+Get the copy-on-write (COW) reference count of a scalar, or C<undef> if the perl does not support scalar COW
+or if the scalar is not COW.
+
+See also L<B::COW/"cowrefcnt( PV )">.
 
 =cut

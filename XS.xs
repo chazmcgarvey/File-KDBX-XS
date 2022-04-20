@@ -6,7 +6,7 @@
 
 #include "tomcrypt.h"
 
-MODULE = File::KDBX::XS  PACKAGE = File::KDBX::Util
+MODULE = File::KDBX::XS  PACKAGE = File::KDBX::XS
 
 PROTOTYPES: DISABLE
 
@@ -20,12 +20,8 @@ CowREFCNT(SV* sv)
     OUTPUT:
         RETVAL
 
-MODULE = File::KDBX::XS  PACKAGE = File::KDBX::KDF::AES
-
-PROTOTYPES: DISABLE
-
 SV*
-_transform_half_xs(const char* key, const char* seed, unsigned int rounds)
+kdf_aes_transform_half(const char* key, const char* seed, unsigned int rounds)
     CODE:
         symmetric_key skey;
 

@@ -11,7 +11,7 @@ my $seed        = "\1" x 16;
 my $rounds      = 123;
 my $expected    = pack('H*', '7deb990760f2ff0f9b8248d63bfb7264');
 
-my $result = File::KDBX::KDF::AES::_transform_half_xs($key, $seed, $rounds);
+my $result = File::KDBX::XS::kdf_aes_transform_half($key, $seed, $rounds);
 is $result, $expected, 'AES KDF transform works' or diag unpack('H*', $result);
 
 done_testing;
