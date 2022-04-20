@@ -69,6 +69,7 @@ if ($^O !~ /^(MSWin32|darwin|solaris)$/ && ($Config{ld} =~ /gcc|g\+\+/ || $Confi
 
 my %eumm_args = (
   'NAME' => 'File::KDBX::XS',##{  # List NAME explicitly here so it works even without dzil. ##}
+  'VERSION' => '999.999',
 ##{ $plugin->get_default(qw{ABSTRACT AUTHOR DISTNAME LICENSE MIN_PERL_VERSION VERSION test}) ##}
 ##{ $plugin->get_prereqs(1) ##}
     @EUMM_INC_LIB,

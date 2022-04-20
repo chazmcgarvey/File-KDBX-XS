@@ -4,15 +4,9 @@ package File::KDBX::XS;
 use warnings;
 use strict;
 
-use Exporter qw(import);
 use XSLoader;
 
 our $VERSION = '999.999'; # VERSION
-
-our @EXPORT_OK = qw(
-    CowREFCNT
-    kdf_aes_transform_half
-);
 
 XSLoader::load(__PACKAGE__, $VERSION);
 
@@ -50,5 +44,7 @@ Get the copy-on-write (COW) reference count of a scalar, or C<undef> if the perl
 or if the scalar is not COW.
 
 See also L<B::COW/"cowrefcnt( PV )">.
+
+=for Pod::Coverage kdf_aes_transform_half
 
 =cut
