@@ -1,3 +1,7 @@
+[![Linux](https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/linux.yml/badge.svg)](https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/linux.yml)
+[![macOS](https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/macos.yml/badge.svg)](https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/macos.yml)
+[![Windows](https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/windows.yml/badge.svg)](https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/windows.yml)
+
 # NAME
 
 File::KDBX::XS - Speed up File::KDBX
@@ -23,10 +27,6 @@ Get the copy-on-write (COW) reference count of a scalar, or `undef` if the perl 
 or if the scalar is not COW.
 
 See also ["cowrefcnt( PV )" in B::COW](https://metacpan.org/pod/B%3A%3ACOW#cowrefcnt-PV).
-
-[![Linux](https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/linux.yml/badge.svg)](https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/linux.yml)
-[![macOS](https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/macos.yml/badge.svg)](https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/macos.yml)
-[![Windows](https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/windows.yml/badge.svg)](https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/windows.yml)
 
 # BUGS
 

@@ -22,6 +22,17 @@ There is no public interface.
 This distribution contains code from L<CryptX> and L<LibTomCrypt|https://www.libtom.net/LibTomCrypt/>,
 bundled according to their own licensing terms (which are also permissive).
 
+=func CowREFCNT
+
+Get the copy-on-write (COW) reference count of a scalar, or C<undef> if the perl does not support scalar COW
+or if the scalar is not COW.
+
+See also L<B::COW/"cowrefcnt( PV )">.
+
+=for Pod::Coverage kdf_aes_transform_half
+
+=begin :header
+
 =begin markdown
 
 [![Linux](https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/linux.yml/badge.svg)](https://github.com/chazmcgarvey/File-KDBX-XS/actions/workflows/linux.yml)
@@ -38,13 +49,6 @@ bundled according to their own licensing terms (which are also permissive).
 
 =end HTML
 
-=func CowREFCNT
-
-Get the copy-on-write (COW) reference count of a scalar, or C<undef> if the perl does not support scalar COW
-or if the scalar is not COW.
-
-See also L<B::COW/"cowrefcnt( PV )">.
-
-=for Pod::Coverage kdf_aes_transform_half
+=end :header
 
 =cut
