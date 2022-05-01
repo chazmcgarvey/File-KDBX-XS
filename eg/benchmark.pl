@@ -18,7 +18,7 @@ my $seed        = "\1" x 16;
 my $expected    = pack('H*', '3f7dfb512060cc8be094cd259c7ff03c');
 
 sub xs {
-    my $result = File::KDBX::KDF::AES::_transform_half_xs($key, $seed, $rounds);
+    my $result = File::KDBX::XS::kdf_aes_transform_half($key, $seed, $rounds);
     return $result;
 }
 
