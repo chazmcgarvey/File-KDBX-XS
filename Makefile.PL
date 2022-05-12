@@ -53,7 +53,7 @@ $mycflags = "$mycflags -Wall -Werror -Wextra" if $ENV{AUTHOR_MODE};
 
 @EUMM_INC_LIB = (
     INC         => $ENV{AUTHOR_MODE} ? '-DLTM_DESC -Ilibtomcrypt/src/headers -Wall -Werror -Wextra' # gcc only
-                                                                : '-DLTM_DESC -Ilibtomcrypt/src/headers',
+                                     : '-DLTM_DESC -Ilibtomcrypt/src/headers',
     MYEXTLIB    => "libtomcrypt/libonlyaes$Config{lib_ext}",
     clean       => { FILES => join(' ', @myobjs, "libtomcrypt/libonlyaes$Config{lib_ext}") },
     realclean   => { FILES => join(' ', qw{cover_db *.gcda *.gcno *.gcov})},
